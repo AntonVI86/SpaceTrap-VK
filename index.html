@@ -16,9 +16,7 @@
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <div id="unity-warning"> </div>
     </div>
-	
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -52,11 +50,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/SpaceTrap.loader.js";
+      var loaderUrl = buildUrl + "/SpaceTrap-VK.loader.js";
       var config = {
-        dataUrl: buildUrl + "/SpaceTrap.data.unityweb",
-        frameworkUrl: buildUrl + "/SpaceTrap.framework.js.unityweb",
-        codeUrl: buildUrl + "/SpaceTrap.wasm.unityweb",
+        dataUrl: buildUrl + "/SpaceTrap-VK.data.unityweb",
+        frameworkUrl: buildUrl + "/SpaceTrap-VK.framework.js.unityweb",
+        codeUrl: buildUrl + "/SpaceTrap-VK.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "A_A games",
         productName: "SpaceTrap",
@@ -100,26 +98,12 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
-          //fullscreenButton.onclick = () => {
-            //unityInstance.SetFullscreen(1);
-          //};
+          
         }).catch((message) => {
           alert(message);
         });
       };
       document.body.appendChild(script);
-	  
-	  let ysdk;
-		function initGame(params) {
-		YaGames
-		.init(params)
-		.then(_sdk => {
-			ysdk = _sdk;
-
-			ysdk.features.LoadingAPI?.ready(); // Показываем SDK, что игра загрузилась и можно начинать играть
-		})
-		.catch(console.error);
-		}
     </script>
   </body>
 </html>
